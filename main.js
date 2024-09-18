@@ -51,6 +51,7 @@ class ParticleInteraction {
     });
 
     this.geometry = new THREE.PlaneGeometry(5, 5, 32, 32);
+    this.geometry.setIndex(null)
     this.plane = new THREE.Points(this.geometry, this.material);
     this.scene.add(this.plane);
   }
@@ -59,6 +60,8 @@ class ParticleInteraction {
     this.interactivePlaneGeometry = new THREE.PlaneGeometry(5, 5);
     this.interactivePlaneMaterial = new THREE.MeshBasicMaterial({ color: 'red', side: THREE.DoubleSide });
     this.interactivePlane = new THREE.Mesh(this.interactivePlaneGeometry, this.interactivePlaneMaterial);
+    this.interactivePlane.visible = false
+    this.scene.add(this.interactivePlane)
   }
 
   initGUI() {
